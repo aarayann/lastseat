@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: booking-engine
+  datasource:
+    # In-memory database. LOCK_TIMEOUT: wait up to 10 s for a row lock instead of failing at once.
+    url: jdbc:h2:mem:bookingdb;DB_CLOSE_DELAY=-1;LOCK_TIMEOUT=10000
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop   # build the tables from the @Entity classes on every start
+    open-in-view: false
+  cache:
+    cache-names: activeRules
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=10m
+
+app:
+  timezone: Asia/Kolkata
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+
+logging:
+  pattern:
+    # Adds the request id to every log line, e.g. "INFO [requestId=7f3a9c21]"
+    level: "%5p [requestId=%X{requestId:-none}]"
