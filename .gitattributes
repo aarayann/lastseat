@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for script files
+/mvnw text eol=lf
+*.cmd text eol=crlf
