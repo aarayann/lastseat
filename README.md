@@ -192,7 +192,7 @@ indexes, so they stay fast as bookings grow.
 39 tests: each rule including its edge cases, the engine's precedence rules, the last-seat race, and full
 HTTP flows (good and bad examples, duplicate, cancel, live rule change, approval, validation, 401/403/404).
  
-## With more time
+## Next steps
  
 - Keep a history of rule changes, so the rules behind any `configVersion` can be shown
 - JWT login, PostgreSQL with migrations, and cache clearing across several instances
