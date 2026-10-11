@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // JSON API with no browser forms, so no CSRF tokens
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/ping", "/actuator/health", "/error",
+                        .requestMatchers("/", "/api/ping", "/actuator/health", "/error",
                                 "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers("/api/admin/**", "/actuator/**").hasRole("ADMIN")
                         .requestMatchers("/api/approvals/**").hasRole("APPROVER")
